@@ -1,0 +1,23 @@
+ #:import utils kivy.utils
+
+
+<MainLayout>:
+    canvas:
+        Color:
+            rgb: utils.get_color_from_hex('#0088ff')
+
+        Rectangle:
+            pos: 0,0
+            size: self.size
+
+    Label:
+        text: 'Компрессор'
+        font_size: 72
+        markup: True
+        shorten: True
+        ellipsis_options: {'color':(1,0.5,0.5,1),'underline':True}
+        size_hint: (1, 0.17)
+        pos_hint: {'x': 0 , 'y' : 0.7}
+    Label:
+        id: label1
+        text: root.artistName
