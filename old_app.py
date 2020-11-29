@@ -7,10 +7,11 @@ from PIL import Image, ImageDraw
 
 list_of_images = []
 
+
 def crawler(path):
     list_of_dirs_files = os.walk(path)
     for i in list_of_dirs_files:
-        if i[2] != []:
+        if i[2]:
             for image_name in i[2]:
                 if image_name.endswith('.jpg') or image_name.endswith('.png'):
                     if i[0].endswith('/'):
@@ -23,9 +24,10 @@ def compressor(list):
     set_of_images = list_of_images
     for img_path in set_of_images:
         image = Image.open(img_path)
-        image.save(img_path ,optimize=True,quality=50)
+        image.save(img_path, optimize=True, quality=50)
     print('Готово')
 
-# if __name__ == "__main__":
-#     crawler(path)
-#     compressor(list_of_images)
+
+if __name__ == "__main__":
+    crawler(input())
+    compressor(list_of_images)
